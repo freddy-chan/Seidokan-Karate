@@ -19,6 +19,14 @@
     <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
           integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 80%;
+      }
+    </style>
 </head>
 
 <body data-gr-c-s-loaded="true">
@@ -40,12 +48,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="about-seidokan.html">About Seidokan</a>
             </li>
-            <li class="nav-item active dropdown">
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="about-us.html" id="dropdown01" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">About Us</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="about-us.html">About Us</a>
-                    <a class="dropdown-item active" href="uniform-equipment.html">Uniform & Equipment</a>
+                    <a class="dropdown-item" href="uniform-equipment.html">Uniform & Equipment</a>
                     <a class="dropdown-item" href="instructor.html">Instructor</a>
                     <a class="dropdown-item" href="gallery.html">Gallery</a>
                 </div>
@@ -54,7 +62,7 @@
                 <a class="nav-link" href="class-times-dues.html">Class Times & Dues</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact-us.html">Contact Us</a>
+                <a class="nav-link active" href="contact-us.html">Contact Us</a>
             </li>
         </ul>
     </div>
@@ -69,58 +77,42 @@
     <br/>
     <div class="row">
         <div class="col">
-            <h2>KARATE UNIFORM...</h2>
-            <img src="img/karate_gi.jpg" style="float:left;padding: 10px;">
-            <p>
-                When you first start taking Seidokan Karate classes, you won't need to wear a uniform on day one. We
-                recommend that new students wear track pants and a t-shirt, or something similar that you’ll be
-                comfortable stretching, kicking and exercising in.
-            </p>
+            <h2>HOW TO CONTACT US</h2>
+            <strong>Florida Seidokan Dojo at Tampa Martial Arts & Wellness Center</strong><br/>
+            127 Flagship Dr. <br/>
+            Lutz, FL 33549 <br/>
+            Phone:  (813) 453-5195 <br/>
+            E-mail: <a href="mailto:FLseidokanDojo@gmail.com">flseidokandojo@gmail.com</a> <br/>
+            Facebook:  <a href="https://www.facebook.com/groups/130390503702474/">Florida Seidokan Dojo</a> <br/> 
+            <br/><br/>
 
-            <p>
-            After taking a week or two of classes, you will be expected to dress-out in the standard training uniform,
-            also called a "gi." The Seidokan Karate training gi is all white with an obi (belt) colored to indicate your
-            rank. You will get hot and sweaty while training, so we recommend that students wear a lightwight gi as
-            opposed to a heavier, reinforced Judo or Aikido-style gi.
-            </p>
+            <h2>DIRECTIONS</h2>
+            Located near US-41, Seidokan Karate is minutes away from Carrollwood, University of South Florida, Wesley Chapel, Lake Magdalene, Lutz, and Land O' Lakes.<br/><br/> 
+            Via I-275, the Seidokan Karate is about a 30-minutes drive from Brandon or Riverview.
 
-            <p>
-            Belt progression goes as follows: <br/>
-            10 - 9 Kyu: white <br/>
-            8 - 7 Kyu : yellow <br/>
-            6 - 4 Kyu : green <br/>
-            3 - 1 Kyu: brown <br/>
-            1st Dan - Black <br/>
+
+            </p>
         </div>
         <div class="col">
-            <h2>KARATE WEAPONS & EQUIPMENT...</h2>
-            <img src="img/kobudo.jpg" style="float:left;padding:10px;">
-            <p>
-            Unlike sports Karate systems, we do not require a lot of training aids, sparring gear or other expensive
-            equipment.
-            </p>
+            <h1>INTERACTIVE MAP</h1>
 
-            <p>
-            Because we are a traditional system, we will be doing some weapon training - Kobudo - in this class.
-            Although the dojo has many practice weapons available for new students, you will want to buy your own to
-            practice with at home.
-            </p>
+            <div id="map"></div>
 
-            <p>
-            The weapons we use are:<br/><br/>
-                <strong>Bo:</strong> A hardwood staff measuring approximately 72-inches long. <br/><br/>
+            <script>
+                var map;
+                function initMap() {
+                    var seidokan = {lat: 28.138900, lng: -82.461760};
 
-                <strong>Sai:</strong> Three-pronged metal truncheons with wrapped handles. <br/><br/>
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: seidokan,
+                        zoom: 13
 
-                <strong>Tonfa:</strong> Paired wooden "L-shaped" nightsticks <br/><br/>
+                    });
 
-                <strong>Kama:</strong> Paired batons with steel blades similar to a sickle <br/>
-            </p>
-
-            <p>
-            We will only work on one weapon at a time. Do not feel that you must go out and buy all these weapons when
-            you buy your uniform.
-            </p>
+                    var marker = new google.maps.Marker({position: seidokan, map: map});
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_swruB1FnBThKGSPYiVLydzjzRNq1M3I&callback=initMap" async defer></script>
         </div>
     </div>
 </div>
